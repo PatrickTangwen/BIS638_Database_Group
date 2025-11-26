@@ -11,13 +11,11 @@ import {
   ScatterChart,
   Scatter,
   ZAxis,
-  Cell,
 } from 'recharts';
 import { AlertTriangle, TrendingUp, Users, Activity } from 'lucide-react';
 import { useFilters } from '../context/FilterContext';
 import { ChartContainer } from '../components/charts/ChartContainer';
 import { KPICard } from '../components/ui/KPICard';
-import { calculateMortalityByGroup, calculateStats } from '../utils/dataLoader';
 
 const COLORS = {
   survived: '#27AE60',

@@ -8,10 +8,6 @@ import {
   Tooltip,
   Legend,
   ResponsiveContainer,
-  BoxPlot,
-  ScatterChart,
-  Scatter,
-  ZAxis,
 } from 'recharts';
 import { useFilters } from '../context/FilterContext';
 import { ChartContainer } from '../components/charts/ChartContainer';

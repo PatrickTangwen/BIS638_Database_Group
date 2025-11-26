@@ -1,6 +1,5 @@
 import { useMemo, useState } from 'react';
 import {
-  BarChart,
   Bar,
   XAxis,
   YAxis,
@@ -15,7 +14,7 @@ import {
 } from 'recharts';
 import { useFilters } from '../context/FilterContext';
 import { ChartContainer } from '../components/charts/ChartContainer';
-import { calculateStats, createHistogramData } from '../utils/dataLoader';
+import { calculateStats } from '../utils/dataLoader';
 
 const COLORS = {
   survived: '#27AE60',

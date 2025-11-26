@@ -19,8 +19,8 @@ export async function loadCSVData(): Promise<PatientRecord[]> {
               ...record,
               gender: record.gender === 'M' || record.gender === 'F' ? record.gender : 'M',
               hospital_expire_flag: record.hospital_expire_flag === 1 ? 1 : 0,
-              first_hosp_stay: record.first_hosp_stay === true || record.first_hosp_stay === 'True',
-              first_icu_stay: record.first_icu_stay === true || record.first_icu_stay === 'True',
+              first_hosp_stay: record.first_hosp_stay === true || String(record.first_hosp_stay) === 'True',
+              first_icu_stay: record.first_icu_stay === true || String(record.first_icu_stay) === 'True',
             } as PatientRecord;
             
             uniqueStays.set(record.stay_id, cleanRecord);

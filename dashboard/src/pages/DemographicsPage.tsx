@@ -14,7 +14,7 @@ import {
 } from 'recharts';
 import { useFilters } from '../context/FilterContext';
 import { ChartContainer } from '../components/charts/ChartContainer';
-import { MortalityTooltip, CustomTooltip } from '../components/charts/CustomTooltip';
+import { MortalityTooltip } from '../components/charts/CustomTooltip';
 import { calculateMortalityByGroup, createAgeBins } from '../utils/dataLoader';
 
 const COLORS = {
