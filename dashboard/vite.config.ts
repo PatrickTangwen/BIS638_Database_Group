@@ -5,7 +5,7 @@ import path from 'path'
 export default defineConfig({
   // Base path for GitHub Pages deployment
   // Change 'BIS638_Database_Group' to your repository name
-  base: process.env.NODE_ENV === 'production' ? '/BIS638_Database_Group_Dashboard/' : '/',
+  base: process.env.NODE_ENV === 'production' ? '/BIS638_Database_Group/' : '/',
   plugins: [react()],
   resolve: {
     alias: {

@@ -3,7 +3,7 @@
   "private": true,
   "version": "1.0.0",
   "type": "module",
-  "homepage": "https://PatrickTangwen.github.io/BIS638_Database_Group_Dashboard",
+  "homepage": "https://PatrickTangwen.github.io/BIS638_Database_Group",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
