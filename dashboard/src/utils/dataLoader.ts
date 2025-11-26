@@ -1,9 +1,12 @@
 import Papa from 'papaparse';
 import type { PatientRecord, ColumnDescriptions } from '../types';
 
+// Get the base URL from Vite (handles GitHub Pages deployment)
+const BASE_URL = import.meta.env.BASE_URL;
+
 export async function loadCSVData(): Promise<PatientRecord[]> {
   return new Promise((resolve, reject) => {
-    Papa.parse('/mimic_pneumonia_cohort_full.csv', {
+    Papa.parse(`${BASE_URL}mimic_pneumonia_cohort_full.csv`, {
       download: true,
       header: true,
       dynamicTyping: true,
@@ -37,7 +40,7 @@ export async function loadCSVData(): Promise<PatientRecord[]> {
 }
 
 export async function loadColumnDescriptions(): Promise<ColumnDescriptions> {
-  const response = await fetch('/column_descriptions.json');
+  const response = await fetch(`${BASE_URL}column_descriptions.json`);
   return response.json();
 }
 
