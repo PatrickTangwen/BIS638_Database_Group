@@ -29,6 +29,52 @@ const COLORS = {
   chart: ['#3498DB', '#27AE60', '#E74C3C', '#F39C12', '#8B5CF6', '#148F77'],
 };
 
+const renderOutcomeLabel = ({
+  cx,
+  cy,
+  outerRadius,
+  percent,
+  name,
+}: any) => {
+  const padding = 12; // distance away from the donut
+
+  if (name === 'Survived') {
+    // top-left of the donut
+    return (
+      <text
+        x={cx - outerRadius - padding}
+        y={cy - outerRadius - padding}
+        fill="#27AE60"
+        textAnchor="start"
+        dominantBaseline="central"
+        fontSize={13}
+      >
+        {`${name}: ${(percent * 100).toFixed(1)}%`}
+      </text>
+    );
+  }
+
+  if (name === 'Died') {
+    // bottom-right of the donut
+    return (
+      <text
+        x={cx + outerRadius + padding}
+        y={cy + outerRadius + padding}
+        fill="#E74C3C"
+        textAnchor="end"
+        dominantBaseline="central"
+        fontSize={13}
+      >
+        {`${name}: ${(percent * 100).toFixed(1)}%`}
+      </text>
+    );
+  }
+
+  return null;
+};
+
+
+
 export function SummaryPage() {
   const { filteredData } = useFilters();
 
@@ -143,7 +189,7 @@ export function SummaryPage() {
                   outerRadius={80}
                   paddingAngle={2}
                   dataKey="value"
-                  label={({ name, percent }) => `${name}: ${(percent * 100).toFixed(1)}%`}
+                  label={renderOutcomeLabel}
                   labelLine={false}
                 >
                   {outcomeData.map((entry, index) => (
