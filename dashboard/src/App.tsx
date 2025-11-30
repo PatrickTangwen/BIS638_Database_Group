@@ -45,7 +45,7 @@ function DashboardContent() {
   const [activeTab, setActiveTab] = useState<TabId>('summary');
   const [isLoading, setIsLoading] = useState(true);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const { setAllData, allData } = useFilters();
+  const { setAllData } = useFilters();
 
   useEffect(() => {
     loadCSVData()
