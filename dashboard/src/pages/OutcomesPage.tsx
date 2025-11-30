@@ -344,14 +344,14 @@ export function OutcomesPage() {
       >
         <div className="h-80">
           <ResponsiveContainer width="100%" height="100%">
-            <ScatterChart>
+            <ScatterChart margin={{ top: 10, right: 20, bottom: 40, left: 20 }}>
               <CartesianGrid strokeDasharray="3 3" stroke="#E2E8F0" />
               <XAxis 
                 type="number" 
                 dataKey="x" 
                 name="ICU LOS" 
                 tick={{ fill: '#64748B', fontSize: 12 }}
-                label={{ value: 'ICU LOS (days)', position: 'bottom', fill: '#64748B' }}
+                label={{ value: 'ICU LOS (days)', position: 'insideBottom', offset: -5, fill: '#64748B' }}
               />
               <YAxis 
                 type="number" 
@@ -374,7 +374,12 @@ export function OutcomesPage() {
                   );
                 }}
               />
-              <Legend />
+              <Legend 
+                wrapperStyle={{ paddingTop: 20 }}
+                layout="horizontal"
+                align="center"
+                verticalAlign="bottom"
+              />
               <Scatter
                 name="Survived"
                 data={losScatterData.filter((d) => d.outcome === 'Survived')}

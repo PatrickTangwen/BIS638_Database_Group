@@ -309,14 +309,14 @@ export function ExplorerPage() {
         <div className="h-96">
           <ResponsiveContainer width="100%" height="100%">
             {chartType === 'scatter' ? (
-              <ScatterChart>
+              <ScatterChart margin={{ top: 10, right: 20, bottom: 40, left: 20 }}>
                 <CartesianGrid strokeDasharray="3 3" stroke="#E2E8F0" />
                 <XAxis 
                   type="number" 
                   dataKey="x" 
                   name={xLabel}
                   tick={{ fill: '#64748B', fontSize: 12 }}
-                  label={{ value: xLabel, position: 'bottom', fill: '#64748B' }}
+                  label={{ value: xLabel, position: 'insideBottom', offset: -5, fill: '#64748B' }}
                 />
                 <YAxis 
                   type="number" 
@@ -339,7 +339,12 @@ export function ExplorerPage() {
                     );
                   }}
                 />
-                <Legend />
+                <Legend 
+                  wrapperStyle={{ paddingTop: 20 }}
+                  layout="horizontal"
+                  align="center"
+                  verticalAlign="bottom"
+                />
                 {colorValues.map((colorValue, index) => (
                   <Scatter
                     key={colorValue}

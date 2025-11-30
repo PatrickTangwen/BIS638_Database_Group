@@ -92,7 +92,7 @@ export function calculateStats(values: (number | null)[]): {
   };
 }
 
-export function createAgeBins(data: PatientRecord[]): { bin: string; count: number; survived: number; died: number }[] {
+export function createAgeBins(data: PatientRecord[]): { bin: string; count: number; total: number; survived: number; died: number; mortalityRate: number }[] {
   const bins = [
     { label: '18-40', min: 18, max: 40 },
     { label: '41-60', min: 41, max: 60 },
@@ -103,11 +103,16 @@ export function createAgeBins(data: PatientRecord[]): { bin: string; count: numb
   
   return bins.map(({ label, min, max }) => {
     const inBin = data.filter((p) => p.admission_age >= min && p.admission_age <= max);
+    const survived = inBin.filter((p) => p.hospital_expire_flag === 0).length;
+    const died = inBin.filter((p) => p.hospital_expire_flag === 1).length;
+    const total = inBin.length;
     return {
       bin: label,
-      count: inBin.length,
-      survived: inBin.filter((p) => p.hospital_expire_flag === 0).length,
-      died: inBin.filter((p) => p.hospital_expire_flag === 1).length,
+      count: total,
+      total,
+      survived,
+      died,
+      mortalityRate: total > 0 ? died / total : 0,
     };
   });
 }

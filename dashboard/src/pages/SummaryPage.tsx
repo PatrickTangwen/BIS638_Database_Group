@@ -287,18 +287,23 @@ export function SummaryPage() {
           <ResponsiveContainer width="100%" height="100%">
             <AreaChart 
               data={useMemo(() => {
-                const bins = Array.from({ length: 20 }, (_, i) => ({
-                  range: `${i * 2}-${(i + 1) * 2}`,
-                  count: filteredData.filter(
-                    (p) => p.los_icu >= i * 2 && p.los_icu < (i + 1) * 2
-                  ).length,
-                  survived: filteredData.filter(
+                const bins = Array.from({ length: 20 }, (_, i) => {
+                  const survived = filteredData.filter(
                     (p) => p.los_icu >= i * 2 && p.los_icu < (i + 1) * 2 && p.hospital_expire_flag === 0
-                  ).length,
-                  died: filteredData.filter(
+                  ).length;
+                  const died = filteredData.filter(
                     (p) => p.los_icu >= i * 2 && p.los_icu < (i + 1) * 2 && p.hospital_expire_flag === 1
-                  ).length,
-                }));
+                  ).length;
+                  const total = survived + died;
+                  return {
+                    range: `${i * 2}-${(i + 1) * 2}`,
+                    count: total,
+                    total,
+                    survived,
+                    died,
+                    mortalityRate: total > 0 ? died / total : 0,
+                  };
+                });
                 return bins;
               }, [filteredData])}
             >

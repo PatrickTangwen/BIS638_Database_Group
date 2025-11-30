@@ -139,9 +139,6 @@ function DashboardContent() {
 
             {/* Right side */}
             <div className="hidden lg:flex items-center gap-3">
-              <div className="text-sm text-primary-500">
-                <span className="font-medium text-primary-700">{allData.length.toLocaleString()}</span> ICU stays
-              </div>
               <a
                 href="https://physionet.org/content/mimiciv/2.2/"
                 target="_blank"
@@ -217,10 +214,10 @@ function DashboardContent() {
               </span>
             </div>
             <div className="text-sm text-primary-400">
-              Educational & Research Use Only • Beth Israel Deaconess Medical Center
+              Created by BIS638 Database Group
             </div>
             <div className="text-sm text-primary-500">
-              Data Period: 2008-2019 • ~5,298 ICU Stays
+              Data Period: 2008-2019
             </div>
           </div>
         </div>
