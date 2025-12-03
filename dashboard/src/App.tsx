@@ -92,19 +92,11 @@ function DashboardContent() {
       <header className="sticky top-0 z-40 bg-white/80 backdrop-blur-lg border-b border-primary-100">
         <div className="max-w-[1800px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
-            {/* Logo & Title */}
+            {/* Title */}
             <div className="flex items-center gap-3">
-              <div className="flex items-center justify-center w-10 h-10 rounded-xl bg-gradient-to-br from-medical-blue to-medical-indigo text-white">
-                <Wind className="w-5 h-5" />
-              </div>
-              <div>
-                <h1 className="text-lg font-bold text-primary-900">
-                  MIMIC-IV Pneumonia ICU
-                </h1>
-                <p className="text-xs text-primary-500 hidden sm:block">
-                  Interactive Clinical Dashboard
-                </p>
-              </div>
+              <h1 className="text-xl font-bold text-primary-900">
+                Dashboard
+              </h1>
             </div>
 
             {/* Desktop Navigation */}
@@ -140,11 +132,11 @@ function DashboardContent() {
             {/* Right side */}
             <div className="hidden lg:flex items-center gap-3">
               <a
-                href="https://physionet.org/content/mimiciv/2.2/"
+                href="https://github.com/PatrickTangwen/BIS638_Database_Group"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-2 text-primary-400 hover:text-primary-600 hover:bg-primary-100 rounded-lg transition-colors"
-                title="MIMIC-IV Documentation"
+                title="GitHub Repository"
               >
                 <Github className="w-5 h-5" />
               </a>
