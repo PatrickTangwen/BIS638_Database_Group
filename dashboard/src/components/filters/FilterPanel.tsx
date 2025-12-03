@@ -24,10 +24,10 @@ export function FilterPanel() {
   const admissionTypeOptions = getUniqueValues(allData, 'admission_type').map((a) => ({ value: a, label: a }));
 
   return (
-    <div className="bg-white rounded-xl shadow-card border border-primary-100 overflow-hidden">
+    <div className="bg-white rounded-xl shadow-card border border-primary-100">
       {/* Header */}
       <div
-        className="flex items-center justify-between px-4 py-3 bg-gradient-to-r from-primary-50 to-primary-100 border-b border-primary-100 cursor-pointer"
+        className="flex items-center justify-between px-4 py-3 bg-gradient-to-r from-primary-50 to-primary-100 border-b border-primary-100 cursor-pointer rounded-t-xl"
         onClick={() => setIsExpanded(!isExpanded)}
       >
         <div className="flex items-center gap-2">
@@ -53,7 +53,7 @@ export function FilterPanel() {
 
       {/* Filter Content */}
       {isExpanded && (
-        <div className="p-4 space-y-4">
+        <div className="p-4 pb-6 space-y-4 overflow-visible">
           {/* Search Box */}
           <div className="relative">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-primary-400" />
@@ -75,7 +75,7 @@ export function FilterPanel() {
           </div>
 
           {/* Grid of Filters */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 overflow-visible">
             {/* Age Range */}
             <div>
               <label className="block text-sm font-medium text-primary-700 mb-2">
