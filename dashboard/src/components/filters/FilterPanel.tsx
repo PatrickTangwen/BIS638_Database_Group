@@ -53,7 +53,7 @@ export function FilterPanel() {
 
       {/* Filter Content */}
       {isExpanded && (
-        <div className="p-4 pb-6 space-y-4 overflow-visible">
+        <div className="p-4 pb-4 space-y-4 overflow-visible">
           {/* Search Box */}
           <div className="relative">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-primary-400" />

@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
-import { ChevronDown, Check, X } from 'lucide-react';
+import { ChevronDown, ChevronUp, Check, X } from 'lucide-react';
 
 interface Option {
   value: string;
@@ -15,6 +15,7 @@ interface MultiSelectProps {
 
 export function MultiSelect({ options, value, onChange, placeholder = 'Select...' }: MultiSelectProps) {
   const [isOpen, setIsOpen] = useState(false);
+  const [openUpward, setOpenUpward] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -27,6 +28,17 @@ export function MultiSelect({ options, value, onChange, placeholder = 'Select...
     document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
+
+  // Determine if dropdown should open upward based on available space
+  useEffect(() => {
+    if (isOpen && containerRef.current) {
+      const rect = containerRef.current.getBoundingClientRect();
+      const spaceBelow = window.innerHeight - rect.bottom;
+      const dropdownHeight = Math.min(options.length * 36 + 8, 248); // max-h-60 = 240px + padding
+      
+      setOpenUpward(spaceBelow < dropdownHeight && rect.top > dropdownHeight);
+    }
+  }, [isOpen, options.length]);
 
   const toggleOption = (optionValue: string) => {
     if (value.includes(optionValue)) {
@@ -66,12 +78,20 @@ export function MultiSelect({ options, value, onChange, placeholder = 'Select...
               <X className="w-3 h-3 text-primary-500" />
             </button>
           )}
-          <ChevronDown className={`w-4 h-4 text-primary-400 transition-transform ${isOpen ? 'rotate-180' : ''}`} />
+          {openUpward && isOpen ? (
+            <ChevronUp className="w-4 h-4 text-primary-400" />
+          ) : (
+            <ChevronDown className={`w-4 h-4 text-primary-400 transition-transform ${isOpen ? 'rotate-180' : ''}`} />
+          )}
         </div>
       </button>
 
       {isOpen && (
-        <div className="absolute z-50 w-full mt-1 bg-white border border-primary-200 rounded-lg shadow-elevated max-h-60 overflow-auto">
+        <div 
+          className={`absolute z-50 w-full bg-white border border-primary-200 rounded-lg shadow-elevated max-h-60 overflow-auto ${
+            openUpward ? 'bottom-full mb-1' : 'top-full mt-1'
+          }`}
+        >
           {options.length === 0 ? (
             <div className="px-3 py-2 text-sm text-primary-400">No options available</div>
           ) : (
