@@ -3,6 +3,8 @@
 ## Overview
 This repository contains the complete pipeline for building, cleaning, analyzing, and visualizing a pneumonia-specific patient cohort from the MIMIC-IV database. The project integrates data extraction, preprocessing, statistical modeling, machine learning, and an interactive dashboard for exploratory analysis.
 
+You may access the dashboard at the following link: https://patricktangwen.github.io/BIS638_Database_Group/
+
 ## Repository Structure
 
 ### Data Extraction & Processing
