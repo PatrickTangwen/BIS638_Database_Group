@@ -322,17 +322,6 @@ npm install
 npm run build 2>&1 | head -50
 ```
 
-## 📝 License
-
-This project is for educational purposes as part of BIS638 Database course.
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit changes (`git commit -m 'Add AmazingFeature'`)
-4. Push to branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
 
 ---
 

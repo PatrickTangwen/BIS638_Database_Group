@@ -1,0 +1,63 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\geometry{a4paper, margin=1in}
+\usepackage{setspace}
+\usepackage{graphicx}
+\usepackage{hyperref}
+
+% Set double spacing
+\doublespacing
+\title{Your Title Here}
+\author{Your Name}
+\date{\today}
+
+
+\begin{document}
+
+\maketitle
+
+
+\section*{Method}
+We developed an interactive web-based dashboard to support exploratory analysis of pneumonia patient outcomes using the MIMIC-IV database. The dashboard is a single-page web application built in React~18 with TypeScript, bundled with Vite and styled with Tailwind CSS. A CSV file containing the patient data is loaded and processed locally using \texttt{PapaParse} and stored in global state via the React Context API. Users filter records by age, gender, race, insurance, admission type, outcome, and length of stay using sliders, multi-select dropdowns, and search boxes. The filtering logic applies all active criteria and passes the resulting subset to the chart components. Visualizations are implemented with \texttt{Recharts} (bar charts, histograms, pie charts, and area plots). This dashboard enables flexible exploration of patient data without database queries. The system architecture in Figure~\ref{fig:architecture} illustrates this workflow.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.95\textwidth]{architecture_diagram.jpg}
+    \caption{Architecture}
+    \label{fig:architecture}
+\end{figure}
+
+\section*{Results}
+
+The dashboard contains eight different specialized pages. Here, we present three representative examples (Figures~\ref{fig:overview}--\ref{fig:vitals}) to demonstrate key features.
+
+\textbf{Overview Analytics.} Figure~\ref{fig:overview} displays the summary interface with key performance indicators presented as metric cards, including total patient counts, mortality rates, and average length of stay measurements. Multiple chart types (donut charts, stacked bar charts, and area plots) illustrate outcome distributions, age demographics, and ICU stay patterns stratified by survival status.
+
+\textbf{Demographic Visualization.} The demographics module (Figure~\ref{fig:demographics}) employs stacked bar charts to visualize patient stratification across multiple dimensions: gender, age groups, race/ethnicity, insurance type, and marital status. Each visualization compares survival outcomes within demographic categories, facilitating health disparity analysis and cohort comparisons.
+
+\textbf{Vital Signs Analysis.} Figure~\ref{fig:vitals} demonstrates the vital signs module with tabbed navigation across seven physiological parameters (heart rate, blood pressure, respiratory rate, temperature, SpO2). For each vital sign, the interface displays statistical summaries (minimum, mean, maximum values) comparing survived versus deceased cohorts, accompanied by distribution histograms. Clinical normal ranges are annotated for reference.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{overview.png}
+    \caption{Dashboard Overview displaying KPIs, outcome distribution donut chart, age distribution histogram, and ICU length of stay area chart.}
+    \label{fig:overview}
+\end{figure}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{demographics.png}
+    \caption{Demographics page showing gender distribution, age-stratified survival analysis, and race/ethnicity breakdown with mortality rates.}
+    \label{fig:demographics}
+\end{figure}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{vital_signs.png}
+    \caption{Vital signs analysis page displaying heart rate statistics for survived and deceased patients, with distribution histogram and normal range reference.}
+    \label{fig:vitals}
+\end{figure}
+
+\end{document}
+

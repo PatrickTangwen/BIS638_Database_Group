@@ -1,6 +1,5 @@
 # Project Reference Document
 
-> **Purpose**: This document provides comprehensive context for LLMs and AI agents working on this codebase. It describes the project structure, file contents, data schema, and code conventions.
 
 ---
 
