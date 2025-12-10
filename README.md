@@ -18,7 +18,7 @@ Located in the `notebook/` directory:
 - **`Doid_Data_Fetch.ipynb`**: Handles disease ontology mapping and initial data querying logic from BigQuery.
 - **`data_cleaning.ipynb`**: Performs extensive data cleaning, including handling missing values, outlier detection/winsorization, and log-transformation of skewed features. Outputs `cleaned_data.csv`.
 - **`cleaned_data.csv`**: The processed, cleaned dataset ready for analysis and modeling.
-- **`Bayesian_selection.ipynb`**: Implements a Bayesian hierarchical logistic regression model for probabilistic feature selection.
+- **`Bayesian_selection.ipynb`**: Implements a Bayesian hierarchical logistic regression model for probabilistic feature selection. Outputs `pip_table.csv` as feature selection result by posterior inclusion probability.
 - **`ML_models.ipynb`**: Trains and evaluates machine learning models (Logistic Regression, Random Forest, XGBoost) to predict hospital mortality.
 - **`visualization.ipynb`**: Generates static visualizations (distributions, correlations) for the final report.
 
