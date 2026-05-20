@@ -33,4 +33,4 @@ Located in the `dashboard/` directory. A React-based web application for interac
 1. **Data Extraction**: Run `data_fetch.py` in Google Colab to generate the raw cohort CSV.
 2. **Data Cleaning**: Execute `notebook/data_cleaning.ipynb` to process the raw CSV into `cleaned_data.csv`.
 3. **Analysis**: Run `notebook/ML_models.ipynb` and `notebook/Bayesian_selection.ipynb` for predictive modeling.
-4. **Dashboard**: Navigate to `dashboard/` and follow its README to launch the interactive visualization tool locally.
+4. **Dashboard**: Navigate to `dashboard/` and follow the README to launch the interactive visualization tool locally.
